@@ -1,6 +1,12 @@
 package fahimeh.eltejaei.covidapp
 
 import android.content.Context
+import android.text.Html
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
+import android.text.style.StyleSpan
 import android.view.ViewGroup
 import fahimeh.eltejaei.covidapp.model.Country
 
@@ -11,7 +17,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class ListAdapter(private var list: List<Country>)
+class ListAdapter(public var list: List<Country>)
     : RecyclerView.Adapter<ConuntryViewHolder>(), Filterable {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ConuntryViewHolder  {
@@ -73,10 +79,22 @@ class ConuntryViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
     fun bind(itemData: Country) {
         txt_country_name?.text = itemData.Slug
         txt_mobtala?.text = context.getString(R.string.txt_new_confirmed) +" "+ itemData.NewConfirmed
+        setSpan(context.getString(R.string.txt_new_confirmed) +" "+ itemData.NewConfirmed,txt_mobtala)
         txt_foot?.text = context.getString(R.string.txt_new_death) +" "+ itemData.NewDeaths
+        setSpan(context.getString(R.string.txt_new_death) +" "+ itemData.NewDeaths,txt_foot)
         txt_behbood?.text = context.getString(R.string.txt_new_recoverd) +" "+ itemData.NewRecovered
+        setSpan(context.getString(R.string.txt_new_recoverd) +" "+ itemData.NewRecovered,txt_behbood)
     }
 
+    fun setSpan(text:String,textView: TextView?){
+        var sb = SpannableStringBuilder(text);
+        var bss = ForegroundColorSpan(context.getResources().getColor(R.color.txt_color1))
+        var iss = StyleSpan(android.graphics.Typeface.BOLD);
+        sb.setSpan(bss,  text.indexOf(':'),  text.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        sb.setSpan(iss,  text.indexOf(':'),  text.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        sb.setSpan(RelativeSizeSpan(1.5f),  text.indexOf(':')+1,  text.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
+        textView?.setText(sb);
+    }
 }
 
 

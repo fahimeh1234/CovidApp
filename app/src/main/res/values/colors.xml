@@ -12,6 +12,8 @@
     <color name="grey_item">#F3F4F6</color>
     <color name="grey_stroke">#BEBFC1</color>
     <color name="txt_color">#656668</color>
+    <color name="txt_color1">#5E5F61</color>
+    <color name="txt_color_list_item">#AEAFB1 </color>
     <color name="white">#ffffff</color>
     <color name="textColorJint">#E0E1E3</color>
     <color name="searchColorIcon">#A7A8AA</color>

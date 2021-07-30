@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 setAdapter(data)
+                searchWord = s.toString()
                 if (s?.length!! != 0) {
-                    searchWord = s.toString()
                     adapter.filter.filter(s)
                 } else {
                     hideKeyboard(currentFocus ?: View(this@MainActivity))
