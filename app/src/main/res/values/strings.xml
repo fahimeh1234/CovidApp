@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CovidApp</string>
+    <string name="txt_new_confirmed">مبتلایان جدید:  </string>
+    <string name="txt_new_death">فوت شدگان جدید: </string>
+    <string name="txt_new_recoverd">بهبودیافتگان: </string>
+    <string name="txt_max_confirmed">بیشترین مبتلایان</string>
+    <string name="txt_max_death">بیشترین فوت شدگان</string>
+    <string name="txt_max_recoverd">بیشترین بهبودیافتگان</string>
+    <string name="txt_search">جستجوی کشور</string>
+</resources>
